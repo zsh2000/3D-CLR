@@ -45,18 +45,10 @@ def load_hm3d_sample_data(basedir, half_res=True, testskip=1):
     img_dir = '/gpfs/u/home/LMCG/LMCGzhnf/scratch-shared/new_bbox_hm3d/' + basedir
 
     img_list = glob.glob(os.path.join(img_dir, "*.png"))
-    for img_idx in range(len(img_list)):
-        if 200 < len(img_list) < 500:
-            if img_idx % 2 != 0:
-                continue
-
-        elif len(img_list) >= 500:
-            if img_idx % 5 != 0:
-                continue
-        img_name = str(img_idx) + ".png"
-        img_file = img_dir +  '/' + img_name
-        pos_file = img_dir + '/' + img_name.replace(".png", ".json")
-        feat_file = img_dir + '_result/features_' + img_name.replace(".png", ".npy.npz")
+    for img_name in tqdm(img_list):
+        img_file = img_name
+        pos_file = img_name.replace(".png", ".json")
+        feat_file = img_dir + '_result/features_' + os.path.basename(img_name).replace(".png", ".npy.npz")
         if not os.path.exists(feat_file):
             continue
 

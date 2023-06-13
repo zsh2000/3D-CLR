@@ -1,15 +1,11 @@
 import numpy as np
 
 from .load_hm3d_sample import load_hm3d_sample_data
-from .load_hm3d_two_rooms import load_hm3d_two_rooms
-from .load_hm3d_three_rooms import load_hm3d_three_rooms
-
 
 def load_data(args):
 
     K, depths = None, None
     near_clip = None
-
 
     if args.dataset_type == 'hm3d_sample':
         images, poses, render_poses, [H, W, focal], i_test = load_hm3d_sample_data(
@@ -20,27 +16,6 @@ def load_data(args):
                         (i not in i_test and i not in i_val)])
         near = 0
         near_clip, far = inward_nearfar_heuristic(poses[i_train, :3, 3])
-
-    elif args.dataset_type == 'hm3d_sample_two_rooms':
-        images, poses, render_poses, [H, W, focal], i_test = load_hm3d_two_rooms(
-                args.datadir)
-        hwf = [H, W, focal]
-        i_val = i_test
-        i_train = np.array([i for i in np.arange(int(images.shape[0])) if
-                        (i not in i_test and i not in i_val)])
-        near = 0
-        near_clip, far = inward_nearfar_heuristic(poses[i_train, :3, 3])
-
-    elif args.dataset_type == 'hm3d_sample_three_rooms':
-        images, poses, render_poses, [H, W, focal], i_test = load_hm3d_three_rooms(
-                args.datadir)
-        hwf = [H, W, focal]
-        i_val = i_test
-        i_train = np.array([i for i in np.arange(int(images.shape[0])) if
-                        (i not in i_test and i not in i_val)])
-        near = 0
-        near_clip, far = inward_nearfar_heuristic(poses[i_train, :3, 3]) 
-
 
     else:
         raise NotImplementedError(f'Unknown dataset type {args.dataset_type} exiting')

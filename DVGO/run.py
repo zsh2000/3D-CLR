@@ -299,7 +299,6 @@ def scene_rep_reconstruction(args, cfg, cfg_model, cfg_train, xyz_min, xyz_max, 
         model.update_occupancy_cache_lt_nviews(
                 rays_o_tr, rays_d_tr, imsz, render_kwargs, cfg_train.maskout_lt_nviews)
 
-    # GOGO
     torch.cuda.empty_cache()
     psnr_lst = []
     time0 = time.time()
