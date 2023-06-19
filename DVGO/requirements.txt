@@ -1,0 +1,24 @@
+numpy
+scipy
+tqdm
+lpips
+mmcv
+imageio
+imageio-ffmpeg
+opencv-python
+torch_efficient_distloss
+scikit-image
+ninja
+einops
+parscript
+pyarrow==8.0.0
+open3d # for visualization
+matplotlib 
+configargparse
+mdutils
+openpyxl
+kornia
+torch_optimizer
+test-tube
+gdown
+pytorch_lightning
