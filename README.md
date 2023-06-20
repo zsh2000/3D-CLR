@@ -36,7 +36,7 @@ Or follow the guidance in the official repository of DVGO in https://github.com/
 
 The code related to dataset processing is under the data\_engine directory.
 
-We use Habitat to render the dataset. Please refer to [habitat-lab](https://github.com/facebookresearch/habitat-lab) for building the rendering environment.Place the 3D scans of the hm3d dataset under the "train" / "val" directories respectively, then run:
+We use Habitat to render the dataset. Please refer to [habitat-lab](https://github.com/facebookresearch/habitat-lab) for building the rendering environment. Place the 3D scans of the hm3d dataset under the "train" / "val" directories respectively, then run:
 ```
 python render_hm3d.py
 ```
@@ -70,7 +70,10 @@ datadir
      - 1.json
      ...
 ```
-
+We could then use run the following script to mask out the regions that do not fall inside the room bounding box:
+```
+python mask_outside_room.py --room_name 00234-nACV8wLu1u5_10
+```
 
 ## Training
 
