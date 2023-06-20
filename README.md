@@ -34,9 +34,14 @@ Or follow the guidance in the official repository of DVGO in https://github.com/
 
 ## Dataset
 
-TODO
+The code related to dataset processing is under the data\_engine directory.
 
-Dataset structure:
+We use Habitat to render the dataset. Please refer to [habitat-lab](https://github.com/facebookresearch/habitat-lab) for building the rendering environment.Place the 3D scans of the hm3d dataset under the "train" / "val" directories respectively, then run:
+```
+python render_hm3d.py
+```
+Afterwards, the multi-view RGB images along with depth and pose information will be rendered. We are expected to obtain the following 
+dataset structure:
 ```
 datadir
   - 00009-vLpv2VX547B_0    # most rooms contain 1000 views while some contain less
