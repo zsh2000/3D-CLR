@@ -1,3 +1,6 @@
+#### The official repo of this work is https://github.com/evelinehong/3D-CLR-Official, instead of this repo. Sorry for the confusion.
+
+
 > # [CVPR 2023] 3D Concept Learning and Reasoning From Multi-View Images <br>
 > [Paper](https://arxiv.org/abs/2303.11327)
 
